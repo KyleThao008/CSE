@@ -1,12 +1,14 @@
 import random
+import string
 words = ["mississippi", "california", "afghanistan", "japan", "hippopotamus", "germany", "panda", "fruit",
          "mongoose", "moose"]
-letter = input("Guess a letter. ")
 guesses = 8
-letters = ["a", "b", "c", "d", "e", "f", "g"]
-guess = letters
+letters = string.ascii_lowercase
+guessed = []
 
-word = random.choice(words)
-print(word)
-if letter in word:
-    letter.join(letters)
+while guesses is 8:
+    word = random.choice(words)
+    print(word)
+    print(input("Letter. "))
+    guesses -= 1
+    
