@@ -3,12 +3,19 @@ import string
 words = ["mississippi", "california", "afghanistan", "japan", "hippopotamus", "germany", "panda", "fruit",
          "mongoose", "moose"]
 guesses = 8
-letters = string.ascii_lowercase
+letter = string.ascii_lowercase
 guessed = []
+word = random.choice(words)
 
-while guesses is 8:
-    word = random.choice(words)
+while guesses > 0:
+
     print(word)
-    print(input("Letter. "))
-    guesses -= 1
-    
+    guessed = input("Letter. ")
+    print(guessed)
+    if guessed in word:
+        print("Letter found.")
+        print("You have used", guessed, "letters already.")
+    else:
+        print("Wrong letter.")
+        print("You have used", guessed, "letters already.")
+        guesses -= 1
