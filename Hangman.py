@@ -23,14 +23,11 @@ while guesses > 0:
 
     guessed = input("Letter. ")
     l_guessed.append(guessed)
+    if guessed.upper():
+        l_guessed.append(guessed.lower())
     if guessed in word:
         print("Letter found.")
         print("You have used", l_guessed, "letters already.")
-        for i in range(len(word)):
-            if word[i].lower() == guessed:
-                hidden_output.pop(i)
-                hidden_output.insert(i, word[i])
-
     else:
         print("Wrong letter.")
         print("You have used", l_guessed, "letters already.""You now have", + guesses, "left.")
