@@ -38,10 +38,10 @@ world_map = {
     },
     'DUNGEON ROOM 2': {
         'NAME': "DUNGEON ROOM 2",
-        'DESCRIPTION': "You are in a room full of skeletons and flying demon bats. There are 2 exits to the north and"
+        'DESCRIPTION': "You are in a room full of skeletons and flying demon bats. There are 2 exits to the north and "
                        "to the west. To the west there seems to be light. There is something shiny on the east side of"
                        "the room.",
-        'PATH': {
+        'PATHS': {
             'NORTH': "DUNGEON ROOM 3",
             'WEST': "MERCHANT",
             'EAST': "SHINY"
@@ -55,6 +55,28 @@ world_map = {
         'PATHS': {
             'WEST': "DUNGEON ROOM 4"
         }
+    },
+    'SHINY': {
+        'NAME': "SHINY",
+        'DESCRIPTION': "There is something shiny here.",
+        'PATHS': {
+            'WEST': "DUNGEON ROOM 2"
+        }
+    },
+    'MERCHANT': {
+        'NAME': "MERCHANT",
+        'DESCRIPTION': "There is a merchant in the dungeon that has a lot of armoury. He seems to been "
+                       "in here for awhile, surviving with his large amount of weapons. The weapons range from swords "
+                       "to staffs.",
+        'PATHS': {
+            'EAST': "DUNGEON ROOM 2"
+        }
+    },
+    'DUNGEON ROOM 4': {
+        'NAME': "DUNGEON ROOM 4",
+        'DESCRIPTION': "You are now in a room with a really old man. He doesn't want to fight but he tells you a riddle"
+                       " that you have to solve. The riddle is 'Their is a couple and they have 4 daughters and each"
+                       " daughter has 1 brother. How many family members are there all together?'"
     }
 }
 
