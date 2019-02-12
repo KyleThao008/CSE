@@ -44,7 +44,8 @@ world_map = {
         'PATHS': {
             'NORTH': "DUNGEON ROOM 3",
             'WEST': "MERCHANT",
-            'EAST': "SHINY"
+            'EAST': "SHINY",
+            'SOUTH': "DUNGEON ROOM 1"
         }
     },
     'DUNGEON ROOM 3': {
@@ -53,7 +54,8 @@ world_map = {
                        "One of the dogs is being guarded by other dogs because it has a piece of the stone."
                        "To the west there is a gate that opens to another room.",
         'PATHS': {
-            'WEST': "DUNGEON ROOM 4"
+            'WEST': "DUNGEON ROOM 4",
+            'SOUTH': "DUNGEON ROOM 2"
         }
     },
     'SHINY': {
@@ -76,7 +78,23 @@ world_map = {
         'NAME': "DUNGEON ROOM 4",
         'DESCRIPTION': "You are now in a room with a really old man. He doesn't want to fight but he tells you a riddle"
                        " that you have to solve. The riddle is 'Their is a couple and they have 4 daughters and each"
-                       " daughter has 1 brother. How many family members are there all together?'"
+                       " daughter has 1 brother. How many family members are there all together?'",
+        'PATHS': {
+            'NORTH': "CHEST",
+            'WEST': "DUNGEON ROOM 5",
+            'EAST': "DUNGEON ROOM 3"
+        }
+    },
+    'CHEST': {
+        'NAME': "CHEST ROOM",
+        'DESCRIPTION': "There are 7 chests in this room. 3 of them contain the shards to the magic stone."
+                       "4 of them contain something else.",
+        'PATHS': {
+
+        }
+    },
+    'DUNGEON ROOM 5': {
+        'NAME': ""
     }
 }
 
