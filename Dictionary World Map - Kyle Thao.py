@@ -90,7 +90,7 @@ world_map = {
         'DESCRIPTION': "There are 7 chests in this room. 3 of them contain the shards to the magic stone."
                        "4 of them contain something else.",
         'PATHS': {
-
+            'SOUTH': "DUNGEON ROOM 4"
         }
     },
     'DUNGEON ROOM 5': {
