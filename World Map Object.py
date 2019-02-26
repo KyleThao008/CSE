@@ -55,7 +55,88 @@ Chest = Room('Chest Room', "In this room there are 7 chests and in 3 of them the
 
 Maze = Room('Maze', "You are in the maze and there is a rope that goes up somewhere")
 
-MazeUp = Room('Attic Room', "You climb tge rope up to the Attic room and there is a chest in here. In the chest you "
+MazeUp = Room('Attic Room', "You climb the rope up to the Attic room and there is a chest in here. In the chest you "
                             "find 2 pieces of the stone.")
 
-Dungeon6 = Room('Dungeon Room 6', "In this room there is a There is a room to the north")
+BossRoom = Room('Dungeon Boss', "In this room you will be fighting a boss. The boss this is the Demon Lord that has "
+                                "been sending these monsters at you to fight. Defeat him to get the remaining 3 pieces"
+                                "of the Magic Stone.")  # Defeat boss and then portal. Portal is north.
+
+Portal2 = Room('Portal', "This portal takes you to the final room.")
+
+FinalRoom = Room('The Final Room', "Congratulations on defeating the boss. In this room there is a display case and a "
+                                   "portal. Once you put all of the pieces of the magic stone into the display case "
+                                   "and then walk through the portal to finish the game.")
+
+Case = Room('Display Case', "Put pieces of magic stone in here")  # pieces in case, another portal *north*
+
+Portal3 = Room('Portal', "Walk through to finish.")
+
+Outside.north = Basement
+Basement.east = Portal
+Portal.east = Dungeon1
+Dungeon1.north = Dungeon2
+Dungeon2.north = Dungeon3
+Dungeon2.east = EastRoom
+Dungeon2.south = Dungeon1
+Dungeon2.west = Merchant
+Dungeon3.west = Dungeon4
+Dungeon3.south = Dungeon2
+Dungeon4.north = Chest
+Dungeon4.west = Dungeon5
+Dungeon4.east = Dungeon3
+Dungeon5.west = Maze
+Dungeon5.north = BossRoom
+BossRoom.north = Portal2
+Portal2.north = FinalRoom
+FinalRoom.west = Case
+Case.north = Portal3
+Portal3.north = playing = False
+
+
+class Player(object):
+    def __init__(self, starting_location, current_class):
+        self.health = 100
+        self.current_location = starting_location
+        self.player_class = current_class
+        self.inventory = []
+
+    def move(self, new_location):
+        """This method moves a character to a new location
+
+        :param new_location: The variable containing a room object
+        """
+        self.current_location = new_location
+
+
+player = Player(Outside, "")
+current_node = world_map["OUTSIDE HOUSE"]
+directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"]
+playing = True
+directions = ['north', 'east', 'south', 'west', 'up', 'down']
+portal_setting = 0
+NUM_OF_PORTAL_OPTIONS = 2
+
+# Controller
+while playing:
+    print(player.current_location.name)
+    print(player.current_location.description)
+    command = input(">_")
+    if command.lower() in ['q',  'quit', 'exit']:
+        playing = False
+    elif command.lower() in directions:
+        try:
+            room_object_that_we_move_to = getattr(player.current_location, command)
+            player.move(room_object_that_we_move_to)
+        except KeyError:
+            print("I can't go that way.")
+    elif "change" in command and current_node == world_map['PORTAL']:
+        if portal_setting % NUM_OF_PORTAL_OPTIONS == 0:
+            world_map['PORTAL']['PATHS']["NORTH"] = 'DUNGEON ROOM 1'
+            print("The portal shows a dungeon room.")
+        elif portal_setting % NUM_OF_PORTAL_OPTIONS == 1:
+            del world_map['PORTAL']['PATHS']["NORTH"]
+            print("The portal shows the the basement.")
+        portal_setting += 1
+    else:
+        print("Command not recognized")
