@@ -78,20 +78,24 @@ Portal.east = Dungeon1
 Dungeon1.north = Dungeon2
 Dungeon2.north = Dungeon3
 Dungeon2.east = EastRoom
+EastRoom.west = Dungeon2
 Dungeon2.south = Dungeon1
 Dungeon2.west = Merchant
+Merchant.east = Dungeon2
 Dungeon3.west = Dungeon4
 Dungeon3.south = Dungeon2
 Dungeon4.north = Chest
 Dungeon4.west = Dungeon5
 Dungeon4.east = Dungeon3
 Dungeon5.west = Maze
+Maze.up = MazeUp
+MazeUp.down = Maze
 Dungeon5.north = BossRoom
 BossRoom.north = Portal2
 Portal2.north = FinalRoom
 FinalRoom.west = Case
 Case.north = Portal3
-Portal3.north = playing = False
+Portal3.north = Portal3
 
 
 class Player(object):
@@ -110,8 +114,6 @@ class Player(object):
 
 
 player = Player(Outside, "")
-current_node = world_map["OUTSIDE HOUSE"]
-directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"]
 playing = True
 directions = ['north', 'east', 'south', 'west', 'up', 'down']
 portal_setting = 0
@@ -130,12 +132,12 @@ while playing:
             player.move(room_object_that_we_move_to)
         except KeyError:
             print("I can't go that way.")
-    elif "change" in command and current_node == world_map['PORTAL']:
+    elif "change" in command and player.current_location == Portal:
         if portal_setting % NUM_OF_PORTAL_OPTIONS == 0:
-            world_map['PORTAL']['PATHS']["NORTH"] = 'DUNGEON ROOM 1'
+            Portal.north = Dungeon1
             print("The portal shows a dungeon room.")
         elif portal_setting % NUM_OF_PORTAL_OPTIONS == 1:
-            del world_map['PORTAL']['PATHS']["NORTH"]
+            Portal.north = None
             print("The portal shows the the basement.")
         portal_setting += 1
     else:

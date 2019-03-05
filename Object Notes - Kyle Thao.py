@@ -29,7 +29,7 @@ class WaterGun(object):
         print("You pump the tank back to full.")
 
 
-my_water_gun = WaterGun(5.2, 40, True)
+my_water_gun = WaterGun(5555555555555555555555555555555.2, 40, True)
 your_water_gun = WaterGun(1.0, 1, False)
 wiebe_water_gun = WaterGun(999999999999999999999999999999999, 99999999999999999999999999999999999999999999, True)
 yahir_water_gun = WaterGun(0.1)
