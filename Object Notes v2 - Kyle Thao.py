@@ -37,5 +37,3 @@ class Burger(object):
 
 my_burger = Burger(True, True, False, False, True)
 my_burger.order()
-
-
