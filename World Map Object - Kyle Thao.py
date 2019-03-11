@@ -59,8 +59,8 @@ MazeUp = Room('Attic Room', "You climb the rope up to the Attic room and there i
                             "find 2 pieces of the stone.")
 
 BossRoom = Room('Dungeon Boss', "In this room you will be fighting a boss. The boss this is the Demon Lord that has "
-                                "been sending these monsters at you to fight. Defeat him to get the remaining 3 pieces"
-                                "of the Magic Stone.")  # Defeat boss and then portal. Portal is north.
+                                "been sending these monsters at you to fight. Defeat him to get the remaining 3 pieces "
+                                "of the Magic Stone.")  # Defeat boss and then portal room opens. Portal is north.
 
 Portal2 = Room('Portal', "This portal takes you to the final room.")
 

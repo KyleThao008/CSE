@@ -51,7 +51,13 @@ class Staff(Item):
 class WoodenStaff(Staff):
     def __init__(self):
         super(WoodenStaff, self).__init__("Wooden Staff", "weak", "weak")
+        self.damage = 9
+
+    def wood_spell(self):
+        return random.randint(self.damage, self.damage + 1)
 
 
 my_sword = ShortSword()
 my_sword.light_attack()
+my_staff = WoodenStaff()
+my_staff.wood_spell()

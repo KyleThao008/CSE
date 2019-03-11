@@ -94,7 +94,33 @@ world_map = {
         }
     },
     'DUNGEON ROOM 5': {
-        'NAME': ""
+        'NAME': "DUNGEON ROOM 5",
+        'DESCRIPTION': "In this dungeon there are orcs and dire wolves. There is a path to the west that"
+                       "seems to lead to a maze. To the north there is another dungeon.",
+        'PATHS': {
+            'NORTH': "BOSS ROOM",
+            'WEST': "MAZE"
+        }
+    },
+    'BOSS ROOM': {
+        'NAME': "BOSS ROOM",
+        'DESCRIPTION': "In this room you will be fighting a boss. The boss this is the Demon Lord that has "
+                       "been sending these monsters at you to fight. Defeat him to get the remaining 3 pieces "
+                       "of the Magic Stone.",  # once entered can't come go back out.
+        'PATHS': {
+            'NORTH': "PORTAL ROOM 2"
+        }
+    },
+    'PORTAL ROOM 2': {
+        'NAME': "PORTAL ROOM 2",
+        'DESCRIPTION': "This portal takes you to the final room.",
+        'PATHS': {
+            'NORTH': "FINAL ROOM"
+        }
+    },
+    'FINAL ROOM': {
+        'NAME': "FINAL ROOM",
+        'DESCRIPTION': "",
     }
 }
 
