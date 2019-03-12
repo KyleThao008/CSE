@@ -120,7 +120,23 @@ world_map = {
     },
     'FINAL ROOM': {
         'NAME': "FINAL ROOM",
-        'DESCRIPTION': "",
+        'DESCRIPTION': "Congratulations on defeating the boss. In this room there is a display case and a "
+                       "portal. Once you put all of the pieces of the magic stone into the display case "
+                       "and then walk through the portal to finish the game.",
+        'PATHS': {
+            'WEST': "CASE"
+        }
+    },
+    'CASE': {
+        'NAME': "CASE",
+        'DESCRIPTION': "Put pieces of magic stone in here",
+        'PATHS': {
+            'NORTH': "PORTAL 3"  # after put pieces in case, you go through the 3rd portal to end the game.
+        }
+    },
+    'PORTAL 3': {
+        'NAME': "THE END",
+        'DESCRIPTION': "END OF THE GAME",
     }
 }
 
@@ -135,6 +151,8 @@ while playing:
     print(current_node["NAME"])
     print(current_node["DESCRIPTION"])
     command = input(">_")
+    if current_node is "PORTAL 3":
+        playing = False
     if command.lower() in ['q',  'quit', 'exit']:
         playing = False
     elif command in directions:
