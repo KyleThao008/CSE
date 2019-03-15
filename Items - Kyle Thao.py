@@ -28,12 +28,12 @@ class ShortSword(Sword):
         self.max_damage = 12
 
     def heavy_attack(self):
-        _number = random.randint(self.minimum_damage + 1, self.max_damage)
+        _number = random.randint(self.minimum_damage + 1, self.max_damage + 3)
         if self.damage > 0:
             print("You swing and hit for", _number)
 
     def light_attack(self):
-        _number = random.randint(self.minimum_damage, self.max_damage)
+        _number = random.randint(self.minimum_damage, self.minimum_damage + 1)
         if self.damage > 0:
             print("You swing and hit for", _number)
 
@@ -50,9 +50,44 @@ class LongSword(Sword):
             print("You swing and you hit for", _number)
 
     def light_attack(self):
-        _number = random.randint(self.minimum_damage, self.minimum_damage - 1)
+        _number = random.randint(self.minimum_damage - 1, self.minimum_damage)
         if self.damage > 0:
             print("You swing and hit for", _number)
+
+
+class GreatSword(Sword):
+    def __init__(self):
+        super(GreatSword, self).__init__("Great Sword", "", "heavy", 20)
+        self.min_damage = 20
+        self.max_damage = 25
+
+    def heavy_attack(self):
+        _number = random.randint(self.min_damage, self.max_damage)
+        if self.damage > 0:
+            print("You swung and hit for", _number)
+
+    def light_attack(self):
+        _number = random.randint(self.min_damage - 5, self.min_damage)
+        if self.damage > 0:
+            print("You swung and hit for", _number)
+
+
+class Shield(Item):
+    def __init__(self, durability, block_damage):
+        super(Shield, self).__init__("Shield", "protection")
+        self.durability = durability
+        self.block_damage = block_damage
+
+
+class SmallShield(Shield):
+    def __init__(self):
+        super(SmallShield, self).__init__(20, 5)
+        self.damage = input("Damage ")
+
+    def block_damage(self):
+        if self.damage > 5:
+            print("You block some of the damage but not all.")
+
 
 
 class Stone(Item):
@@ -75,7 +110,13 @@ class WoodenStaff(Staff):
         self.damage = 9
 
     def wood_spell(self):
-        return random.randint(self.damage, self.damage + 1)
+        _number = random.randint(0, self.damage + 1)
+        if _number > 0:
+            print("You casted your spell and it hits for", _number)
+
+        else:
+            self.damage = 0
+            print("You missed")
 
 
 class OnyxStaff(Staff):
@@ -117,11 +158,17 @@ class IceStaff(Staff):
         if self.damage > 0:
             print("You casted your spell and it hit for", random.randint(0, self.max_damage))
 
+        else:
+            self.damage = 0
+            print("You missed.")
+
 
 # ==================================================Instantiated Items==================================================
 # Instantiate items
 my_sword = ShortSword()
 long_sword = LongSword()
+great_sword = GreatSword()
+small_shield = SmallShield()
 wood_staff = WoodenStaff()
 onyx_staff = OnyxStaff()
 fire_staff = FireStaff()
@@ -130,9 +177,17 @@ ice_staff = IceStaff()
 # ================================================== Item Upgrades======================================================
 my_sword.light_attack()
 my_sword.heavy_attack()
+
 long_sword.light_attack()
 long_sword.heavy_attack()
+
+great_sword.heavy_attack()
+great_sword.light_attack()
+
 wood_staff.wood_spell()
+
 onyx_staff.lightning_spell()
+
 fire_staff.firega()
+
 ice_staff.blizzaga()
