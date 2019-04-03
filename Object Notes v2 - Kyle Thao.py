@@ -1,3 +1,6 @@
+import random
+
+
 class Burger(object):
     def __init__(self, patty, cheese, vegetables, toppings, eat):
         self.bun = True
@@ -32,7 +35,8 @@ class Burger(object):
             if self.eat:
                 print("You've eaten your burger.")
             else:
-                print("Eat up before it gets cold.")
+                self.eat = False
+                print("Why did you order if you aren't going to eat.")
 
 
 my_burger = Burger(True, True, False, False, True)

@@ -45,11 +45,13 @@ class Character(object):
 
 
 class Player(object):
-    def __init__(self, starting_location, current_class):
+    def __init__(self, starting_location, current_class, pick_up, drop):
         self.health = 100
         self.current_location = starting_location
         self.player_class = current_class
         self.inventory = []
+        self.pick_up = pick_up
+        self.drop = drop
 
     def move(self, new_location):
         """This method moves a character to a new location
@@ -317,34 +319,34 @@ ice_staff = IceStaff()
 darius_axe = DariusAxe()
 
 # =====================================================Item Commands====================================================
-sword.light_attack()
-sword.heavy_attack()
-
-long_sword.light_attack()
-long_sword.heavy_attack()
-
-great_sword.heavy_attack()
-great_sword.light_attack()
-
-small_axe.attack()
-
-katana.poke()
-
-wolf_axe.light_attack()
-wolf_axe.heavy_attack()
-wolf_axe.spin_attack()
-
-darius_axe.spin_attack()
-darius_axe.light_attack()
-darius_axe.heavy_attack()
-
-wood_staff.wood_spell()
-
-onyx_staff.lightning_spell()
-
-fire_staff.firega()
-
-ice_staff.blizzaga()
+# sword.light_attack()
+# sword.heavy_attack()
+#
+# long_sword.light_attack()
+# long_sword.heavy_attack()
+#
+# great_sword.heavy_attack()
+# great_sword.light_attack()
+#
+# small_axe.attack()
+#
+# katana.poke()
+#
+# wolf_axe.light_attack()
+# wolf_axe.heavy_attack()
+# wolf_axe.spin_attack()
+#
+# darius_axe.spin_attack()
+# darius_axe.light_attack()
+# darius_axe.heavy_attack()
+#
+# wood_staff.wood_spell()
+#
+# onyx_staff.lightning_spell()
+#
+# fire_staff.firega()
+#
+# ice_staff.blizzaga()
 # ======================================================================================================================
 
 
@@ -429,6 +431,7 @@ Dungeon3.south = Dungeon2
 Dungeon4.north = Chest
 Dungeon4.west = Dungeon5
 Dungeon4.east = Dungeon3
+Chest.south = Dungeon4
 Dungeon5.west = Maze
 Maze.up = MazeUp
 MazeUp.down = Maze
@@ -440,21 +443,8 @@ Case.north = Portal3
 Portal3.north = Portal3
 # ======================================================================================================================
 
-sword = Weapon("Sword", 15)
-sword2 = Weapon("Orc Sword", 5)
 
-
-c1 = Character("Orc1", 100, sword, None)
-c2 = Character("Orc2", 100, sword2, None)
-
-while c2.health > 0:
-    c1.attack(c2)
-
-while c1.health > 0:
-    c2.attack(c1)
-
-
-player = Player(Outside, "")
+player = Player(Outside, "", pick_up=True, drop=True)
 playing = True
 directions = ['north', 'east', 'south', 'west', 'up', 'down']
 portal_setting = 0
@@ -464,7 +454,26 @@ NUM_OF_PORTAL_OPTIONS = 2
 while playing:
     print(player.current_location.name)
     print(player.current_location.description)
+
+    if player.current_location.items is not None:
+        print("The following items are in the room:")
+        for num, item in enumerate(player.current_location.items):
+            print(str(num + 1) + ": " + item.name)
+
     command = input(">_")
+    if "pick up " in command:
+        item_name = command[8:]
+        item_object = None
+
+        for item in player.current_location.items:
+            if item.name == item_name:
+                item_object = item
+
+        if item_object is not None:
+            player.inventory.append(item_object)
+            player.current_location.items.remove(item_object)
+            print("YAY!!!")
+
     if command.lower() in ['q',  'quit', 'exit']:
         playing = False
     elif command.lower() in directions:

@@ -279,6 +279,31 @@ class Rapier(Sword):
             print("You attack the enemy so fast that the enemy becomes confused.")
 
 
+class BigBone(Sword):
+    def __init__(self):
+        super(BigBone, self).__init__("Big Bone", "big", "Bone", 10)
+        self.min_damage = 10
+        self.max_damage = 15
+
+    def bone_toss(self):
+        if self.damage > 0:
+            print("You toss your big bone and hit for", random.randint(0, self.min_damage, self.min_damage + 2))
+
+        else:
+            self.damage = 0
+            print("You potato. How do you miss with a huge bone thing?")
+
+
+class SupportStaff(Staff):
+    def __init__(self):
+        super(SupportStaff, self).__init__("Support Staff", "summon", "strong")
+        self.min_damage = 10
+        self.max_damage = 15
+
+    def minions(self):
+        if self.damage > 0:
+            print("You summon minions to attack your enemy. They hit the enemy for", random.randint(self.min_damage,
+                                                                                                    self.max_damage))
 
 
 # ===================================================Instantiated Items=================================================
@@ -287,19 +312,26 @@ long_sword = LongSword()
 small_axe = SmallAxe()
 wolf_axe = WolfAxe()
 katana = Katana()
+rapier = Rapier()
 great_sword = GreatSword()
 wood_staff = WoodenStaff()
 onyx_staff = OnyxStaff()
 fire_staff = FireStaff()
 ice_staff = IceStaff()
 darius_axe = DariusAxe()
+bone = BigBone()
+support = SupportStaff()
 
 # =====================================================Item Commands====================================================
 my_sword.light_attack()
 my_sword.heavy_attack()
 
+bone.bone_toss()
+
 long_sword.light_attack()
 long_sword.heavy_attack()
+
+rapier.quick_attack()
 
 great_sword.heavy_attack()
 great_sword.light_attack()
@@ -323,3 +355,5 @@ onyx_staff.lightning_spell()
 fire_staff.firega()
 
 ice_staff.blizzaga()
+
+support.minions()
