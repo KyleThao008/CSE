@@ -461,19 +461,6 @@ while playing:
             print(str(num + 1) + ": " + item.name)
 
     command = input(">_")
-    if "pick up " in command:
-        item_name = command[8:]
-        item_object = None
-
-        for item in player.current_location.items:
-            if item.name == item_name:
-                item_object = item
-
-        if item_object is not None:
-            player.inventory.append(item_object)
-            player.current_location.items.remove(item_object)
-            print("YAY!!!")
-
     if command.lower() in ['q',  'quit', 'exit']:
         playing = False
     elif command.lower() in directions:
@@ -492,3 +479,35 @@ while playing:
         portal_setting += 1
     else:
         print("Command not recognized")
+
+    if "take " in command:
+        item_name = command[5:]
+        item_object = None
+
+        for item in player.current_location.items:
+            if item.name == item_name:
+                item_object = item
+
+        if item_object is not None:
+            player.inventory.append(item_object)
+            player.current_location.items.remove(item_object)
+            print("You added to your inventory.")
+
+    if "drop " in command:
+        item_name = command[5:]
+        item_object = None
+
+        for item in player.inventory:
+            if item.name == item_name:
+                item_object = item
+
+        if item_object is not None:
+            player.inventory.remove(item_object)
+            player.current_location.items.append(item_object)
+            print("1")
+
+    if "inventory" in command:
+        if player.inventory is not None:
+            print("The following items are in your inventory:")
+            for num, item in enumerate(player.inventory):
+                print(str(num + 1) + ": " + item.name)
