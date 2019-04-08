@@ -58,7 +58,10 @@ class Player(object):
 
         :param new_location: The variable containing a room object
         """
-        self.current_location = new_location
+        if new_location is not None:
+            self.current_location = new_location
+        else:
+            print("You can't go that way")
 
 
 class Item(object):
@@ -447,6 +450,7 @@ Portal3.north = Portal3
 player = Player(Outside, "", pick_up=True, drop=True)
 playing = True
 directions = ['north', 'east', 'south', 'west', 'up', 'down']
+short_directions = ['n', 'e', 's', 'w', 'u', 'd']
 portal_setting = 0
 NUM_OF_PORTAL_OPTIONS = 2
 
@@ -461,6 +465,11 @@ while playing:
             print(str(num + 1) + ": " + item.name)
 
     command = input(">_")
+
+    if command.lower() in short_directions:
+        pos = short_directions.index(command.lower())
+        command = directions[pos]
+
     if command.lower() in ['q',  'quit', 'exit']:
         playing = False
     elif command.lower() in directions:
