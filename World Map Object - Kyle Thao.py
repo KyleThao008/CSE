@@ -45,13 +45,15 @@ class Character(object):
 
 
 class Player(object):
-    def __init__(self, starting_location, current_class, pick_up, drop):
+    def __init__(self, starting_location, current_class, pick_up, drop, weapon):
         self.health = 100
+        self.name = Player
         self.current_location = starting_location
         self.player_class = current_class
         self.inventory = []
         self.pick_up = pick_up
         self.drop = drop
+        self.weapon = weapon
 
     def move(self, new_location):
         """This method moves a character to a new location
@@ -62,6 +64,16 @@ class Player(object):
             self.current_location = new_location
         else:
             print("You can't go that way")
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+        print("%s has %d health left." % (self.name, self.health))
+
+    def attack(self, target):
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        target.take_damage(self.weapon.damage)
 
 
 class Item(object):
@@ -447,7 +459,7 @@ Portal3.north = Portal3
 # ======================================================================================================================
 
 
-player = Player(Outside, "", pick_up=True, drop=True)
+player = Player(Outside, "", pick_up=True, drop=True, weapon=True)
 playing = True
 directions = ['north', 'east', 'south', 'west', 'up', 'down']
 short_directions = ['n', 'e', 's', 'w', 'u', 'd']
@@ -520,3 +532,32 @@ while playing:
             print("The following items are in your inventory:")
             for num, item in enumerate(player.inventory):
                 print(str(num + 1) + ": " + item.name)
+
+    if "equip " in command:
+        item_name = command[6:]
+        item_object = None
+
+        for item in player.inventory:
+            if item.name == item_name:
+                item_object = item
+
+        if item_object is not None:
+            print("Equipped.")
+            player.weapon = item_object
+
+    if "unequip " in command:
+        item_name = command[9:]
+        item_object = None
+
+        for item in player.weapon:
+            if item.name == item_name:
+                item_object = item
+
+        if item_object is not None:
+            print("Un-Equipped.")
+            player.weapon.remove(item_object)
+            player.inventory.append(item_object)
+
+    if "equipment" in command:
+        if player.weapon is not None:
+            print("You have equipped a", player.weapon.name)
