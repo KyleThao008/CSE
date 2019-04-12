@@ -20,7 +20,7 @@
     <SUITE FILE_PATH="coverage/CSE$Guess_Gmae.coverage" NAME="Guess Gmae Coverage Results" MODIFIED="1554219438752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Inheritance.coverage" NAME="Inheritance Coverage Results" MODIFIED="1551461048639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Notes_S2.coverage" NAME="Notes S2 Coverage Results" MODIFIED="1548433753270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CSE$World_Map_Object___Kyle_Thao.coverage" NAME="World Map Object - Kyle Thao Coverage Results" MODIFIED="1554997153161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSE$World_Map_Object___Kyle_Thao.coverage" NAME="World Map Object - Kyle Thao Coverage Results" MODIFIED="1555086679556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Object_Notes___Kyle_Thao.coverage" NAME="Object Notes - Kyle Thao Coverage Results" MODIFIED="1551284812402" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Hangman___Kyle_Thao.coverage" NAME="Hangman - Kyle Thao Coverage Results" MODIFIED="1553527345837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Special_Random.coverage" NAME="Special_Random Coverage Results" MODIFIED="1550075537458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -43,7 +43,7 @@
     <session id="1384226364">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="63" />
+          <entry key="project.closed" value="64" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.37" value="1" />
@@ -66,7 +66,7 @@
           <entry key="project.open.time.57" value="2" />
           <entry key="project.open.time.58" value="5" />
           <entry key="project.open.time.59" value="3" />
-          <entry key="project.open.time.60" value="1" />
+          <entry key="project.open.time.60" value="2" />
           <entry key="project.open.time.61" value="1" />
           <entry key="project.open.time.62" value="2" />
           <entry key="project.open.time.64" value="2" />
@@ -79,7 +79,7 @@
           <entry key="project.open.time.77" value="1" />
           <entry key="project.open.time.82" value="1" />
           <entry key="project.open.time.90" value="1" />
-          <entry key="project.opened" value="65" />
+          <entry key="project.opened" value="66" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -96,12 +96,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="42450" />
+          <entry key="py" value="42854" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="42450" />
+          <entry key="Python" value="42854" />
         </counts>
       </usages-collector>
     </session>
@@ -114,8 +114,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="551" column="33" selection-start-line="551" selection-start-column="33" selection-end-line="551" selection-end-column="33" />
+            <state relative-caret-position="205">
+              <caret line="544" column="30" lean-forward="true" selection-start-line="544" selection-start-column="30" selection-end-line="544" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -462,13 +462,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <marker date="1551461345375" expanded="true" signature="22:27" ph="..." />
-            <marker date="1551461345375" expanded="true" signature="141:146" ph="..." />
-            <marker date="1551461345375" expanded="true" signature="554:559" ph="..." />
-            <marker date="1551461345375" expanded="true" signature="721:783" ph="..." />
-            <marker date="1551461345375" expanded="true" signature="902:907" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -476,10 +469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5253">
           <caret line="309" column="16" selection-start-line="309" selection-start-column="16" selection-end-line="309" selection-end-column="16" />
-          <folding>
-            <marker date="1553785415032" expanded="true" signature="8089:9319" ph="..." />
-            <marker date="1553785415032" expanded="true" signature="8404:9319" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -490,17 +479,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao - Copy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="467" selection-start-line="467" selection-end-line="467" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao - Copy.py" />
     <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="551" column="33" selection-start-line="551" selection-start-column="33" selection-end-line="551" selection-end-column="33" />
+        <state relative-caret-position="205">
+          <caret line="544" column="30" lean-forward="true" selection-start-line="544" selection-start-column="30" selection-end-line="544" selection-end-column="30" />
         </state>
       </provider>
     </entry>
