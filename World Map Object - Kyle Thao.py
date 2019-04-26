@@ -545,15 +545,6 @@ while playing:
             print("Equipped.")
             player.weapon = item_object
 
-    if "unequip " in command:
-        item_name = command[8:]
-        item_object = None
-        player.getattr(item_name)
-        if item_object is not None:
-            player.weapon.remove(item_object)
-            player.inventory.append(item_object)
-            print("Un-Equipped")
-
     if "equipment" in command:
         if player.weapon is not None:
             print("You have equipped a", player.weapon.name)
