@@ -2,22 +2,29 @@ import csv
 
 
 def validate(num: str):
-    number = int(num)
-    if int(number) is 16:
-        return True
-    if int(number) > 16:
-        return False
+    number = num
+    if len(number) == 16:
+        list_form = list(num)
+        list_form.pop(15)
+        last_digit = [::15]
+        print(list_form)
+
+    return False
+
+def reverse_number(number):
+    return [::-1]
 
 
-with open("Book1.csv", 'r') as old_csv:
-    with open("New One", 'w', newline='') as new_one_csv:
-        reader = csv.reader(old_csv)
-        writer = csv.writer(new_one_csv)
-        print("Beep")
+print(validate("4556737586899855"))
 
-        for row in reader:
-            old_number = 
-            if validate(old_number):
-                writer.writerow(row)
-            print(old_number)
-
+# with open("Book1.csv", 'r') as old_csv:
+#     with open("New One.csv", 'w', newline='') as new_one_csv:
+#         reader = csv.reader(old_csv)
+#         writer = csv.writer(new_one_csv)
+#         print("Beep")
+#
+#         for row in reader:
+#             old_number = row[0]
+#             if validate(old_number):
+#                 writer.writerow(row)
+#             print(old_number)

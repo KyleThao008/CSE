@@ -25,6 +25,12 @@ def reverse(num: str):
     print(num[0:10:2])
 
 
+def valid1(num: str):
+    reversed_version = reverse(num)
+    for i in reversed_version:
+        ...
+
+
 reverse("9426528975403930")
 # def validate(num: str):
 #     first_num = int(num[0])
