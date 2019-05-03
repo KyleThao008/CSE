@@ -6,13 +6,10 @@ def validate(num: str):
     if len(number) == 16:
         list_form = list(num)
         list_form.pop(15)
-        last_digit = [::15]
-        print(list_form)
-
+        last_digit = []
+        print(list_form[::-1])
+        print(list_form[::-1][0:14:2])
     return False
-
-def reverse_number(number):
-    return [::-1]
 
 
 print(validate("4556737586899855"))
