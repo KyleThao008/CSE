@@ -7,8 +7,10 @@ def validate(num: str):
         list_form = list(num)
         list_form.pop(15)
         last_digit = []
-        print(list_form[::-1])
-        print(list_form[::-1][0:14:2])
+        reversed_form = list_form[::-1]
+        for index in range(len(reversed_form)):
+            if index:
+                ''
     return False
 
 
