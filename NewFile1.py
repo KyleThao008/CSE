@@ -44,8 +44,6 @@ reverse("9426528975403930")
 #     for row in reader:
 #         old_number = row[0]
 #         print(old_number + "1")
-
-
 with open("Book1.csv", 'r') as old_csv:
     with open("MyNewFIle.csv", 'w', newline='') as new_csv:
         reader = csv.reader(old_csv)
