@@ -6,6 +6,17 @@ with open("Sales Records.csv", 'r') as old_csv:
     print("Processing...")
     fruit_total = 0
     clothes_total = 0
+    meat_profit = 0
+    beverages_profit = 0
+    office_profit = 0
+    cosmetics_profit = 0
+    snacks_profit = 0
+    personal_profit = 0
+    household_profit = 0
+    vegetables_profit = 0
+    baby_food_profit = 0
+    cereal_profit = 0
+
     for row in reader:
         if row[0] == "Region":
             continue
@@ -19,10 +30,38 @@ with open("Sales Records.csv", 'r') as old_csv:
 
         if "Fruits" == item:
             fruit_total += profit_number
+        if "Clothes" == item:
+            clothes_total += profit_number
+        if "Meat" == item:
+            meat_profit += profit_number
+        if "Office Supplies" == item:
+            office_profit += profit_number
+        if "Baby Food" == item:
+            baby_food_profit += profit_number
+        if "Beverages" == item:
+            beverages_profit += profit_number
+        if "Cosmetics" == item:
+            cosmetics_profit += profit_number
+        if "Snacks" == item:
+            snacks_profit += profit_number
+        if "Personal Care" == item:
+            personal_profit += profit_number
+        if "Household" == item:
+            household_profit += profit_number
+        if "Cereal" == item:
+            cereal_profit += profit_number
+        if "Vegetables" == item:
+            vegetables_profit += profit_number
     print("Total Fruit Profit", round(fruit_total, 2))
-
-    if "Clothes" == item:
-        clothes_total += profit_number
-print("Total Fruit Profit", round(clothes_total, 2))
-
+    print("Total Fruit Profit", round(clothes_total, 2))
+    print("Total Meat Fruit", round(meat_profit, 2))
+    print("Total Office Profit", round(office_profit, 2))
+    print("Total Baby Food Profit", round(baby_food_profit, 2))
+    print("Total Beverages", round(beverages_profit, 2))
+    print("Total Cosmetic Profit", round(cosmetics_profit, 2))
+    print("Total Snacks Profit", round(snacks_profit, 2))
+    print("Total Personal Care Profit", round(personal_profit, 2))
+    print("Total Household Profit", round(household_profit, 2))
+    print("Total Cereal Profit", round(cereal_profit, 2))
+    print("Total Vegetable Profit", round(vegetables_profit, 2))
 

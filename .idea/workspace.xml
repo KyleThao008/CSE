@@ -50,8 +50,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="462" column="14" selection-start-line="462" selection-start-column="14" selection-end-line="462" selection-end-column="14" />
+            <state relative-caret-position="523">
+              <caret line="550" lean-forward="true" selection-start-line="550" selection-end-line="550" />
             </state>
           </provider>
         </entry>
@@ -59,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NewFile1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="319">
+              <caret line="45" column="33" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="45" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -68,8 +68,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Validator by Kyle Thao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            <state>
+              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Sales - Kyle Thao.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -77,24 +86,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="mock:///Sales Records.csv (fragment)">
           <provider selected="true" editor-type-id="table-data-fragment-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Sales - Kyle Thao.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Sales Records.csv">
-          <provider selected="true" editor-type-id="LargeFileEditor">
-            <state relative-caret-position="85">
-              <caret line="5" column="52" selection-end-line="10250" selection-end-column="104" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -136,13 +127,14 @@
         <option value="$PROJECT_DIR$/Object Notes v2 - Kyle Thao.py" />
         <option value="$PROJECT_DIR$/World Map Object - Kyle Thao.py" />
         <option value="$PROJECT_DIR$/Book1.csv" />
-        <option value="$PROJECT_DIR$/Validator by Kyle Thao.py" />
         <option value="$PROJECT_DIR$/NewFile1.py" />
+        <option value="$PROJECT_DIR$/Validator by Kyle Thao.py" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/Sales - Kyle Thao.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -283,7 +275,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="World Map Object - Kyle Thao" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -296,7 +288,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/World Map Object - Kyle Thao.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -306,19 +298,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.World Map Object - Kyle Thao" />
       <item itemvalue="Python.NewFile1" />
       <item itemvalue="Python.Validator by Kyle Thao" />
       <item itemvalue="Python.Hangman - Kyle Thao" />
       <item itemvalue="Python.Sales - Kyle Thao" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Sales - Kyle Thao" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.Validator by Kyle Thao" />
         <item itemvalue="Python.NewFile1" />
         <item itemvalue="Python.Hangman - Kyle Thao" />
-        <item itemvalue="Python.World Map Object - Kyle Thao" />
       </list>
     </recent_temporary>
   </component>
@@ -340,12 +332,13 @@
       <workItem from="1557240587129" duration="1998000" />
       <workItem from="1557326861429" duration="3452000" />
       <workItem from="1557413488235" duration="3221000" />
-      <workItem from="1557504130419" duration="2575000" />
+      <workItem from="1557504130419" duration="2611000" />
+      <workItem from="1557758889713" duration="3435000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33882000" />
+    <option name="totallyTimeSpent" value="37353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -358,14 +351,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" weight="0.28446388" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4987775" weight="0.583151" />
       <window_info id="Structure" order="1" sideWeight="0.5012225" side_tool="true" weight="0.22390318" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32980332" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27352297" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29321662" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,8 +405,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CSE$Hangman___Kyle_Thao.coverage" NAME="Hangman - Kyle Thao Coverage Results" MODIFIED="1556725022692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CSE$Sales___Kyle_Thao.coverage" NAME="Sales - Kyle Thao Coverage Results" MODIFIED="1557506750952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSE$Sales___Kyle_Thao.coverage" NAME="Sales - Kyle Thao Coverage Results" MODIFIED="1557762128801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$NewFile1.coverage" NAME="NewFile1 Coverage Results" MODIFIED="1557155919388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSE$test.coverage" NAME="test Coverage Results" MODIFIED="1557761075695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSE$Validator_by_Kyle_Thao.coverage" NAME="Validator by Kyle Thao Coverage Results" MODIFIED="1557243369226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
@@ -514,42 +507,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Sales.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="LargeFileEditor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Sales Records.csv">
       <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="85">
-          <caret line="5" column="52" selection-end-line="10250" selection-end-column="104" />
+        <state relative-caret-position="84">
+          <caret line="15" column="72" selection-end-line="10250" selection-end-column="104" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NewFile1.py">
+    <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+        <state relative-caret-position="523">
+          <caret line="550" lean-forward="true" selection-start-line="550" selection-end-line="550" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Validator by Kyle Thao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state>
+          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sales.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/World Map Object - Kyle Thao.py">
+    <entry file="file://$PROJECT_DIR$/NewFile1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="462" column="14" selection-start-line="462" selection-start-column="14" selection-end-line="462" selection-end-column="14" />
+        <state relative-caret-position="319">
+          <caret line="45" column="33" lean-forward="true" selection-start-line="41" selection-start-column="1" selection-end-line="45" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Sales - Kyle Thao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        <state relative-caret-position="730">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
         </state>
       </provider>
     </entry>
