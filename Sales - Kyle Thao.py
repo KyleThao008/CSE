@@ -53,8 +53,8 @@ with open("Sales Records.csv", 'r') as old_csv:
         if "Vegetables" == item:
             vegetables_profit += profit_number
     print("Total Fruit Profit", round(fruit_total, 2))
-    print("Total Fruit Profit", round(clothes_total, 2))
-    print("Total Meat Fruit", round(meat_profit, 2))
+    print("Total Clothes Profit", round(clothes_total, 2))
+    print("Total Meat Profit", round(meat_profit, 2))
     print("Total Office Profit", round(office_profit, 2))
     print("Total Baby Food Profit", round(baby_food_profit, 2))
     print("Total Beverages", round(beverages_profit, 2))
@@ -64,4 +64,7 @@ with open("Sales Records.csv", 'r') as old_csv:
     print("Total Household Profit", round(household_profit, 2))
     print("Total Cereal Profit", round(cereal_profit, 2))
     print("Total Vegetable Profit", round(vegetables_profit, 2))
+
+profits = [fruit_total, cereal_profit, clothes_total, meat_profit, office_profit, beverages_profit, baby_food_profit,
+           vegetables_profit, personal_profit, cosmetics_profit, snacks_profit, household_profit]
 
