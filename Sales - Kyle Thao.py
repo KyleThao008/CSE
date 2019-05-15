@@ -68,3 +68,4 @@ with open("Sales Records.csv", 'r') as old_csv:
 profits = [fruit_total, cereal_profit, clothes_total, meat_profit, office_profit, beverages_profit, baby_food_profit,
            vegetables_profit, personal_profit, cosmetics_profit, snacks_profit, household_profit]
 
+

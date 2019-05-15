@@ -75,6 +75,12 @@ class Player(object):
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
         target.take_damage(self.weapon.damage)
 
+    def has_weapon(self):
+        for item in self.inventory:
+            if issubclass(type(item), Weapon):
+                return True
+        return False
+
 
 class Item(object):
     def __init__(self, name, types):
@@ -510,9 +516,12 @@ while playing:
                 item_object = item
 
         if item_object is not None:
-            player.inventory.append(item_object)
-            player.current_location.items.remove(item_object)
-            print("You added to your inventory.")
+            if issubclass(type(item_object), Weapon) and player.has_weapon():
+                print("You are already carrying a weapon")
+            else:
+                player.inventory.append(item_object)
+                player.current_location.items.remove(item_object)
+                print("You added to your inventory.")
 
     if "drop " in command:
         item_name = command[5:]
