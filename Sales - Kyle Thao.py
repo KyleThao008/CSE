@@ -68,4 +68,9 @@ with open("Sales Records.csv", 'r') as old_csv:
 profits = [fruit_total, cereal_profit, clothes_total, meat_profit, office_profit, beverages_profit, baby_food_profit,
            vegetables_profit, personal_profit, cosmetics_profit, snacks_profit, household_profit]
 
+names = ["Fruits", "Cereal", "Clothes", "Meat", "Office Supplies", "Beverages", "Baby Food", "Vegetables",
+         "Personal Care", "Cosmetics", "Snacks", "Household"]
 
+index = profits.index(max(profits))
+
+print("The biggest profit is", names[index], "with a", max(profits), "profit.")
