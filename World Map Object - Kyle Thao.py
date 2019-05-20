@@ -1,9 +1,23 @@
 import random
 
 
+def fight(enemy):
+    print("A wild %s appears!" % enemy.name)
+    while player.health > 0 and enemy.health > 0:
+        input("Press any key to attack")
+        player.attack(enemy)
+        if enemy.health > 0:
+            enemy.attack(player)
+        if player.health <= 0:
+            print("GAME OVER")
+            quit(0)
+
+
 class Room(object):
     def __init__(self, name, description="", north=None, south=None, east=None, west=None, up=None, down=None,
-                 items=None):
+                 items=None, enemies=None):
+        if enemies is None:
+            enemies = []
         self.name = name
         self.north = north
         self.south = south
@@ -13,6 +27,7 @@ class Room(object):
         self.down = down
         self.description = description
         self.items = items
+        self.enemies = enemies
 
 
 class Item(object):
@@ -47,13 +62,14 @@ class Character(object):
 class Player(object):
     def __init__(self, starting_location, current_class, pick_up, drop, weapon):
         self.health = 100
-        self.name = Player
+        self.name = "Player"
         self.current_location = starting_location
         self.player_class = current_class
         self.inventory = []
         self.pick_up = pick_up
         self.drop = drop
         self.weapon = weapon
+        self.max_hp = 100
 
     def move(self, new_location):
         """This method moves a character to a new location
@@ -80,6 +96,11 @@ class Player(object):
             if issubclass(type(item), Weapon):
                 return True
         return False
+
+    def recover(self):
+        self.health += 35
+        if self.health > self.max_hp:
+            self.health = self.max_hp
 
 
 class Item(object):
@@ -326,65 +347,54 @@ class HolySword(Sword):
             print("The Holy spirits have given you power.")
 
 
+class Orc(Character):
+    def __init__(self):
+        super(Orc, self).__init__("Orc", 100, sword, '')
+
+
+class Goblin(Character):
+    def __init__(self):
+        super(Goblin, self).__init__("Goblin", 50, sword, '')
+
+
+class Ogre(Character):
+    def __init__(self):
+        super(Ogre, self).__init__("Ogre", 100, small_axe, '')
+
+
+class Bat(Character):
+    def __init__(self):
+        super(Bat, self).__init__("Bat", 100, Fists, '')
+
+
+class Fists(Weapon):
+    def __init__(self):
+        super(Fists, self).__init__("Fists", 1)
+
+
 # ===================================================Instantiated Items=================================================
 sword = ShortSword()
 long_sword = LongSword()
 small_axe = SmallAxe()
 wolf_axe = WolfAxe()
 katana = Katana()
-great_sword = GreatSword()
-wood_staff = WoodenStaff()
-onyx_staff = OnyxStaff()
-fire_staff = FireStaff()
-ice_staff = IceStaff()
 darius_axe = DariusAxe()
-
-# =====================================================Item Commands====================================================
-# sword.light_attack()
-# sword.heavy_attack()
-#
-# long_sword.light_attack()
-# long_sword.heavy_attack()
-#
-# great_sword.heavy_attack()
-# great_sword.light_attack()
-#
-# small_axe.attack()
-#
-# katana.poke()
-#
-# wolf_axe.light_attack()
-# wolf_axe.heavy_attack()
-# wolf_axe.spin_attack()
-#
-# darius_axe.spin_attack()
-# darius_axe.light_attack()
-# darius_axe.heavy_attack()
-#
-# wood_staff.wood_spell()
-#
-# onyx_staff.lightning_spell()
-#
-# fire_staff.firega()
-#
-# ice_staff.blizzaga()
-# ======================================================================================================================
-
 
 # ======================================================Rooms===========================================================
 
 Outside = Room("Outside", "You are outside a white house and to the north there is an opening to an abandoned basement."
-                          " There seems to be light inside.")
+                          "\nThere seems to be light inside.")
 
-Basement = Room('Basement', "As you entered the basement, a door closes behind you, trapping you in the room."
-                            "In the room there are a set of weapons on the wall and to the east there is a portal "
-                            "that goes somewhere.", None, None, True, None, None, None, [sword, wood_staff, small_axe])
+Basement = Room('Basement', "As you entered the basement, a door closes behind you, trapping you in the room.\n"
+                            "In the room there are a set of weapons on the wall and to the east there is a portal\n"
+                            "that goes somewhere.", None, None, True, None, None, None, [sword, small_axe])
 
 Portal = Room('Portal', "You are at a room with a portal. On the wall it says for you to find all 10 pieces of the"
                         "Magic Stone to restore world piece.")
 
 Dungeon1 = Room('Dungeon Room 1', "You are in a dungeon room and there are goblins and"
-                                  "ogres in the room. To the north there seems to be an exit.")
+                                  "ogres in the room. To the north there seems to be an exit.", None, None, None, None,
+                None, None, None, [Ogre(), Goblin()])
 
 Dungeon2 = Room('Dungeon Room 2', "You are in a room full of skeletons and flying demon bats."
                                   " There are 2 exits to the north, east, and west. To the west there seems to be "
@@ -392,9 +402,8 @@ Dungeon2 = Room('Dungeon Room 2', "You are in a room full of skeletons and flyin
 
 Merchant = Room('Merchant', "There is a merchant in the dungeon that has a lot of armoury. He seems to been "
                             "in here for awhile, surviving with his large amount of weapons. The weapons range "
-                            "from swords to staffs.", None, None, True, None, None, None, [fire_staff, ice_staff,
-                                                                                           wolf_axe, katana,
-                                                                                           onyx_staff, long_sword])
+                            "from swords to staffs.", None, None, True, None, None, None, [wolf_axe, katana,
+                                                                                           long_sword])
 
 EastRoom = Room('East Room', "There something very shiny in here.")
 
@@ -402,14 +411,14 @@ Dungeon3 = Room('Dungeon Room 3', "You are in a room full of demon dogs and boar
                                   "One of the dogs is being guarded by other dogs because it has a piece of the "
                                   "stone. To the west there is a gate that opens to another room.")
 
-Dungeon4 = Room('Dungeon Room 4', "You are now in a room with a really old man. He doesn't want to fight but he tells "
+Dungeon4 = Room('Dungeon Room 4', "You are now in a room with a really old man. He doesn't want to fight but he tells\n"
                                   "you a riddle that you have to solve. To the North there is a chest room. To the west"
                                   "it leads to another dungeon. Once you finish answering th riddle, the man will give"
                                   " you a piece of the magic stone."
-                                  " The riddle is 'Their is a couple and they have 4 daughters and each daughter has "
+                                  " The riddle is 'Their is a couple and they have 4 daughters and each daughter has\n "
                                   "1 brother. How many family members are there all together?'")
 
-Dungeon5 = Room('Dungeon Room 5', "In this dungeon there are orcs and dire wolves. There is a path to the west that"
+Dungeon5 = Room('Dungeon Room 5', "In this dungeon there are orcs and dire wolves. There is a path to the west that\n"
                                   "seems to lead to a maze. To the north there is another dungeon.")
 
 Chest = Room('Chest Room', "In this room there are 7 chests and in 3 of them there are pieces of the stone in them."
@@ -471,9 +480,15 @@ directions = ['north', 'east', 'south', 'west', 'up', 'down']
 short_directions = ['n', 'e', 's', 'w', 'u', 'd']
 portal_setting = 0
 NUM_OF_PORTAL_OPTIONS = 2
+player.weapon = Fists()
 
 # Controller
 while playing:
+    while len(player.current_location.enemies) > 0:
+        fight(player.current_location.enemies[0])
+        player.recover()
+        player.current_location.enemies.pop(0)
+
     print(player.current_location.name)
     print(player.current_location.description)
 
@@ -504,10 +519,8 @@ while playing:
             Portal.north = None
             print("The portal shows the the basement.")
         portal_setting += 1
-    else:
-        print("Command not recognized")
 
-    if "take " in command:
+    elif "take " in command:
         item_name = command[5:]
         item_object = None
 
@@ -523,7 +536,7 @@ while playing:
                 player.current_location.items.remove(item_object)
                 print("You added to your inventory.")
 
-    if "drop " in command:
+    elif "drop " in command:
         item_name = command[5:]
         item_object = None
 
@@ -536,13 +549,13 @@ while playing:
             player.current_location.items.append(item_object)
             print("1")
 
-    if "inventory" in command:
+    elif "inventory" in command:
         if player.inventory is not None:
             print("The following items are in your inventory:")
             for num, item in enumerate(player.inventory):
                 print(str(num + 1) + ": " + item.name)
 
-    if "equip " in command:
+    elif "equip " in command:
         item_name = command[6:]
         item_object = None
 
@@ -554,6 +567,8 @@ while playing:
             print("Equipped.")
             player.weapon = item_object
 
-    if "equipment" in command:
+    elif "equipment" in command:
         if player.weapon is not None:
             print("You have equipped a", player.weapon.name)
+    else:
+        print("Command not recognized")
