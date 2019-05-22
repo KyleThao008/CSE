@@ -1,5 +1,7 @@
 import random
 
+from termcolor import colored
+
 
 def fight(enemy):
     print("A wild %s appears!" % enemy.name)
@@ -60,7 +62,7 @@ class Character(object):
 
 
 class Player(object):
-    def __init__(self, starting_location, current_class, pick_up, drop, weapon):
+    def __init__(self, starting_location, current_class, pick_up, drop, use, weapon):
         self.health = 100
         self.name = "Player"
         self.current_location = starting_location
@@ -70,6 +72,7 @@ class Player(object):
         self.drop = drop
         self.weapon = weapon
         self.max_hp = 100
+        self.use = True
 
     def move(self, new_location):
         """This method moves a character to a new location
@@ -174,87 +177,11 @@ class GreatSword(Sword):
             print("You swung and hit for", _number)
 
 
-class Shield(Item):
-    def __init__(self, durability, block_damage):
-        super(Shield, self).__init__("Shield", "protection")
-        self.durability = durability
-        self.block_damage = block_damage
-
-
 class Stone(Item):
     def __init__(self):
         super(Stone, self).__init__("Stone Piece", "collectible")
         self.can_be_collected = True
         self.weight = 1
-
-
-class Staff(Item):
-    def __init__(self, name,  types, stone):
-        super(Staff, self).__init__(name, types)
-        self.staff_handle = True
-        self.staff_stone = stone
-        self.damage = 9
-
-
-class WoodenStaff(Staff):
-    def __init__(self):
-        super(WoodenStaff, self).__init__("Wooden Staff", "weak", "weak")
-        self.damage = 14
-
-    def wood_spell(self):
-        _number = random.randint(0, self.damage + 1)
-        if _number > 0:
-            print("You casted your spell a GIANT TREE appears. They are launched towards the enemy "
-                  "and it hits for", _number)
-
-        else:
-            self.damage = 0
-            print("The trees missed the enemy?")
-
-
-class OnyxStaff(Staff):
-    def __init__(self):
-        super(OnyxStaff, self).__init__("Onyx Staff", "lightning", "strong")
-        self.max_damage = 13
-
-    def lightning_spell(self):
-        _number = random.randint(0, self.max_damage)
-        if _number > 0:
-            print("You casted your spell and a WILD ZAPDOS APPEARS??? It uses lightning bolt and it hits for", _number)
-
-        else:
-            self.damage = 0
-            print("Zapdos misses its lightning bolt.")
-
-
-class FireStaff(Staff):
-    def __init__(self):
-        super(FireStaff, self).__init__("Fire Staff", "fire", "strong")
-        self.max_damage = 10
-
-    def firega(self):
-        _number = random.randint(0, self.max_damage)
-        if self.damage > 0:
-            print("You casted your spell and it spawns a Moltres. Moltres uses flamethrower and it hits for ", _number)
-
-        else:
-            self.damage = 0
-            print("Moltres misses his flamethrower attack.")
-
-
-class IceStaff(Staff):
-    def __init__(self):
-        super(IceStaff, self).__init__("Ice Staff", "ice", "strong")
-        self.max_damage = 15
-
-    def blizzaga(self):
-        if self.damage > 0:
-            print("You casted your spell and a ice block spawns on top of the enemy. "
-                  "It hit for", random.randint(0, self.max_damage))
-
-        else:
-            self.damage = 0
-            print("You missed.")
 
 
 class Axe(Item):
@@ -301,9 +228,9 @@ class WolfAxe(Axe):
             print("You swung and hit for", _number)
 
 
-class DariusAxe(Axe):
+class OmegaAxe(Axe):
     def __init__(self):
-        super(DariusAxe, self).__init__("The Legendary Axe of Darius", "legendary", 1000, "large")
+        super(OmegaAxe, self).__init__("The Legendary Axe of the Omega", "legendary", 1000, "large")
         self.min_damage = 1000
         self.max_damage = 1999
 
@@ -367,9 +294,35 @@ class Bat(Character):
         super(Bat, self).__init__("Bat", 100, Fists, '')
 
 
+class Skeleton(Character):
+    def __init__(self):
+        super(Skeleton, self).__init__("Skeleton", 100, small_axe, '')
+
+
+class DemonDog(Character):
+    def __init__(self):
+        super(DemonDog, self).__init__("Demon Dog", 75, Bite(), '')
+
+
 class Fists(Weapon):
     def __init__(self):
         super(Fists, self).__init__("Fists", 1)
+
+
+class Bite(Weapon):
+    def __init__(self):
+        super(Bite, self).__init__("Bite", 5)
+
+
+class Heal(Item):
+    def __init__(self, name, types, heal):
+        super(Heal, self).__init__(name, types)
+        self.heal = heal
+
+
+class SmallPotion(Heal):
+    def __init__(self):
+        super(SmallPotion, self).__init__("Small Potion", 'weak', 35)
 
 
 # ===================================================Instantiated Items=================================================
@@ -378,58 +331,56 @@ long_sword = LongSword()
 small_axe = SmallAxe()
 wolf_axe = WolfAxe()
 katana = Katana()
-darius_axe = DariusAxe()
+omega_axe = OmegaAxe()
 
-# ======================================================Rooms===========================================================
+# NUMBER 22 ============================================Rooms===========================================================
 
 Outside = Room("Outside", "You are outside a white house and to the north there is an opening to an abandoned basement."
                           "\nThere seems to be light inside.")
 
 Basement = Room('Basement', "As you entered the basement, a door closes behind you, trapping you in the room.\n"
                             "In the room there are a set of weapons on the wall and to the east there is a portal\n"
-                            "that goes somewhere.", None, None, True, None, None, None, [sword, small_axe])
+                            "that goes somewhere.", None, None, True, None, None, None,
+                [sword, small_axe, SmallPotion(), Stone()])
 
-Portal = Room('Portal', "You are at a room with a portal. On the wall it says for you to find all 10 pieces of the"
+Portal = Room('Portal', "You are at a room with a portal. On the wall it says for you to find all 10 pieces of the\n"
                         "Magic Stone to restore world piece.")
 
 Dungeon1 = Room('Dungeon Room 1', "You are in a dungeon room and there are goblins and"
                                   "ogres in the room. To the north there seems to be an exit.", None, None, None, None,
                 None, None, None, [Ogre(), Goblin()])
 
-Dungeon2 = Room('Dungeon Room 2', "You are in a room full of skeletons and flying demon bats."
-                                  " There are 2 exits to the north, east, and west. To the west there seems to be "
-                                  "light. There is something shiny to the east.")
+Dungeon2 = Room('Dungeon Room 2', "You are in a room full of skeletons and flying demon bats.\n"
+                                  "There are 2 exits to the north, east, and west. To the west there seems\n"
+                                  "to be spooky red lights.",
+                True, True, True, True, None, None, [], [DemonDog(), Bat()])
 
-Merchant = Room('Merchant', "There is a merchant in the dungeon that has a lot of armoury. He seems to been "
-                            "in here for awhile, surviving with his large amount of weapons. The weapons range "
+Merchant = Room('Merchant', "There is a merchant in the dungeon that has a lot of armoury. He seems to been\n"
+                            "in here for awhile, surviving with his large amount of weapons. The weapons range\n"
                             "from swords to staffs.", None, None, True, None, None, None, [wolf_axe, katana,
                                                                                            long_sword])
 
-EastRoom = Room('East Room', "There something very shiny in here.")
+EastRoom = Room('East Room', "There it is empty here.", None, None, None,
+                True, None, None, None, None)
 
-Dungeon3 = Room('Dungeon Room 3', "You are in a room full of demon dogs and boars that ram you."
-                                  "One of the dogs is being guarded by other dogs because it has a piece of the "
-                                  "stone. To the west there is a gate that opens to another room.")
+Dungeon3 = Room('Dungeon Room 3', "You are in a room full of demon dogs and boars that ram you.\n"
+                                  "To the west there is a gate that opens to another room.", None, None, True,
+                True, None, None, None, None)
 
 Dungeon4 = Room('Dungeon Room 4', "You are now in a room with a really old man. He doesn't want to fight but he tells\n"
                                   "you a riddle that you have to solve. To the North there is a chest room. To the west"
                                   "it leads to another dungeon. Once you finish answering th riddle, the man will give"
-                                  " you a piece of the magic stone."
+                                  " you a key"
                                   " The riddle is 'Their is a couple and they have 4 daughters and each daughter has\n "
                                   "1 brother. How many family members are there all together?'")
 
 Dungeon5 = Room('Dungeon Room 5', "In this dungeon there are orcs and dire wolves. There is a path to the west that\n"
                                   "seems to lead to a maze. To the north there is another dungeon.")
 
-Chest = Room('Chest Room', "In this room there are 7 chests and in 3 of them there are pieces of the stone in them."
-                           " You have 3 chances to guess the chests that have the stone in them. If you choose the"
-                           " wrong 3 a force field pushes you out of the room. Re enter anc choose again. They are "
-                           "randomized each fail.")
-
 Maze = Room('Maze', "You are in the maze and there is a rope that goes up somewhere")
 
-MazeUp = Room('Attic Room', "You climb the rope up to the Attic room and there is a chest in here. In the chest you "
-                            "find 2 pieces of the stone.")
+MazeUp = Room('Attic Room', "You climb the rope up to the Attic room and there is a  ", None, None, None, None, None,
+              True, [OmegaAxe], None)
 
 BossRoom = Room('Dungeon Boss', "In this room you will be fighting a boss. The boss this is the Demon Lord that has "
                                 "been sending these monsters at you to fight. Defeat him to get the remaining 3 pieces"
@@ -449,6 +400,7 @@ Portal3 = Room('Portal', "Walk through to finish.")
 Outside.north = Basement
 Basement.east = Portal
 Portal.east = Dungeon1
+Portal.west = Basement
 Dungeon1.north = Dungeon2
 Dungeon2.north = Dungeon3
 Dungeon2.east = EastRoom
@@ -458,10 +410,8 @@ Dungeon2.west = Merchant
 Merchant.east = Dungeon2
 Dungeon3.west = Dungeon4
 Dungeon3.south = Dungeon2
-Dungeon4.north = Chest
 Dungeon4.west = Dungeon5
 Dungeon4.east = Dungeon3
-Chest.south = Dungeon4
 Dungeon5.west = Maze
 Maze.up = MazeUp
 MazeUp.down = Maze
@@ -474,7 +424,7 @@ Portal3.north = Portal3
 # ======================================================================================================================
 
 
-player = Player(Outside, "", pick_up=True, drop=True, weapon=True)
+player = Player(Outside, "", pick_up=True, drop=True, weapon=True, use=True)
 playing = True
 directions = ['north', 'east', 'south', 'west', 'up', 'down']
 short_directions = ['n', 'e', 's', 'w', 'u', 'd']
@@ -484,13 +434,13 @@ player.weapon = Fists()
 
 # Controller
 while playing:
+    print(colored(player.current_location.name, 'yellow'))
+    print(player.current_location.description)
+
     while len(player.current_location.enemies) > 0:
         fight(player.current_location.enemies[0])
         player.recover()
         player.current_location.enemies.pop(0)
-
-    print(player.current_location.name)
-    print(player.current_location.description)
 
     if player.current_location.items is not None:
         print("The following items are in the room:")
@@ -510,7 +460,7 @@ while playing:
             room_object_that_we_move_to = getattr(player.current_location, command)
             player.move(room_object_that_we_move_to)
         except KeyError:
-            print("I can't go that way.")
+            print(colored("I can't go that way.", 'red'))
     elif "change" in command and player.current_location == Portal:
         if portal_setting % NUM_OF_PORTAL_OPTIONS == 0:
             Portal.north = Dungeon1
@@ -529,12 +479,9 @@ while playing:
                 item_object = item
 
         if item_object is not None:
-            if issubclass(type(item_object), Weapon) and player.has_weapon():
-                print("You are already carrying a weapon")
-            else:
-                player.inventory.append(item_object)
-                player.current_location.items.remove(item_object)
-                print("You added to your inventory.")
+            player.inventory.append(item_object)
+            player.current_location.items.remove(item_object)
+            print("You added to your inventory.")
 
     elif "drop " in command:
         item_name = command[5:]
@@ -560,6 +507,8 @@ while playing:
         item_object = None
 
         for item in player.inventory:
+            if issubclass(type(item_object), Weapon) and player.has_weapon():
+                print("You are already carrying a weapon")
             if item.name == item_name:
                 item_object = item
 
@@ -570,5 +519,22 @@ while playing:
     elif "equipment" in command:
         if player.weapon is not None:
             print("You have equipped a", player.weapon.name)
+
+    elif "health" in command:
+        if player.health > 0:
+            print("You have", player.health, "health.")
+
+    elif "use " in command:
+        item_name = command[4:]
+        item_object = None
+
+        for item in player.inventory:
+            if item.name == item_name:
+                item_object = item
+
+        if issubclass(type(item_object), Heal):
+            if player.health < 50:
+                player.health += item_object.heal
+                print("You have healed for", item_object.heal, "You now have", player.health), "health."
     else:
-        print("Command not recognized")
+        print(colored("Command not recognized", 'red'))
