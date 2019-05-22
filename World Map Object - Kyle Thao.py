@@ -536,5 +536,9 @@ while playing:
             if player.health < 50:
                 player.health += item_object.heal
                 print("You have healed for", item_object.heal, "You now have", player.health), "health."
+            if player.health > 50:
+                player.health += item_object.heal
+                print("You used a potion and it gave you", colored(item_object.heal, 'red'),
+                      "health. You now have", colored(player.health, 'red'), "health.")
     else:
         print(colored("Command not recognized", 'red'))
